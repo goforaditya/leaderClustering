@@ -1,3 +1,9 @@
+"""
+Implementation of Leader Clustering inspired by https://sigir-ecom.github.io/ecom2018/ecom18Papers/paper8.pdf
+Creatred By: adipunchh, sjeet-lab
+"""
+
+
 def _find_leaders(data: list, threshold: int = 3) -> list:
     # p = data
     ldrpat = []
@@ -7,6 +13,7 @@ def _find_leaders(data: list, threshold: int = 3) -> list:
     for i in range(len(data)-1):
         nldr = no_of_leaders
         for j in range(no_of_leaders):
+            # TODO: Define lev distance and dmeta
             if (lev.get_raw_score(data[i],ldrpat[j]) > threshold) & \
                 (dmeta.phonetics(data[i])[0]!=dmeta.phonetics(ldrpat[j])[0]):
                 
@@ -35,3 +42,5 @@ def leader_cluster(data: list, threshold: int = 3) -> dict:
     leaders = _find_leaders(data, threshold)
     for i in leaders:
         clusters[i] = _cluster_criterion(i, data, threshold)
+
+    return clusters
