@@ -6,7 +6,7 @@ def _find_leaders(data: list, threshold: int = 3) -> list:
 
     for i in range(len(data)-1):
         nldr = no_of_leaders
-        for j in range(len(no_of_leaders)):
+        for j in range(no_of_leaders):
             if (lev.get_raw_score(data[i],ldrpat[j]) > threshold) & \
                 (dmeta.phonetics(data[i])[0]!=dmeta.phonetics(ldrpat[j])[0]):
                 
