@@ -35,3 +35,5 @@ def leader_cluster(data: list, threshold: int = 3) -> dict:
     leaders = _find_leaders(data, threshold)
     for i in leaders:
         dictionary[i] = _cluster_criterion(i, data, threshold)
+    
+    return dictionary
