@@ -23,7 +23,7 @@ def _cluster_criterion(leader: str, data: list, threshold: int = 3) -> list:
     cluster = list()
     for data_point in data:
         if (lev.get_raw_score(data_point, leader) < threshold) & \
-            (dmeta.phonetics(data_point)[0]==dmeta.phonetics(leader):
+            (dmeta.phonetics(data_point)[0]==dmeta.phonetics(leader)):
             cluster.append()
 
     return cluster
@@ -34,4 +34,4 @@ def leader_cluster(data: list, threshold: int = 3) -> dict:
 
     leaders = _find_leaders(data, threshold)
     for i in leaders:
-        dictionary[i] = _cluster_criterion(i, data, threshold)
+        clusters[i] = _cluster_criterion(i, data, threshold)
